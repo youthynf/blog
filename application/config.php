@@ -83,7 +83,7 @@ return [
     // pathinfo分隔符
     'pathinfo_depr'          => '/',
     // URL伪静态后缀
-    'url_html_suffix'        => 'html',
+    'url_html_suffix'        => '',
     // URL普通方式参数 用于自动生成
     'url_common_param'       => false,
     // URL参数方式 0 按名称成对解析 1 按顺序解析
@@ -123,7 +123,7 @@ return [
         // 模板引擎类型 支持 php think 支持扩展
         'type'         => 'Think',
         // 模板路径
-        'view_path'    => '',
+        'view_path'    => TMPL_PATH,
         // 模板后缀
         'view_suffix'  => 'html',
         // 模板文件名分隔符
@@ -136,6 +136,27 @@ return [
         'taglib_begin' => '{',
         // 标签库标签结束标记
         'taglib_end'   => '}',
+    ],
+
+    /**
+     * 前台文件配置
+     * Author: MR.zhou
+     * */
+    'home' => [
+        // 模快名称
+        'model_name' =>'home',
+        // 默认模板文件名称
+        'default_template' => 'default',       // 这里可以切换模块下的默认模板名称
+    ],
+    /**
+     * 后台文件配置
+     * Author: MR.zhou
+     * */
+    'admin'=>[
+        // 模快名称
+        'model_name' =>'admin',
+        // 默认模板文件名称
+        'default_template' =>'default',        // 这里可以切换模块下的默认模板名称
     ],
 
     // 视图输出字符串内容替换

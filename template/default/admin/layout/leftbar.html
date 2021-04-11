@@ -1,0 +1,34 @@
+<div class="sidebar-nav">
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>文章管理</a>
+        <ul id="dashboard-menu" class='nav nav-list collapse {if condition="($place eq 1)"} in {/if}'>
+            <li {if condition="($place eq 11)"} class="active" {/if}><a href="{:url('/admin/article')}">文章列表</a></li>
+            <li {if condition="($place eq 12)"} class="active" {/if}><a href="{:url('/admin/article')}">文章分类</a></li>
+        </ul>
+
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>留言管理<span class="label label-info">+3</span></a>
+        <ul id="accounts-menu" class='nav nav-list collapse {if condition="($place eq 21)"} in {/if}'>
+            <li {if condition="($place eq 21)"} class="active" {/if}><a href="{:url('/admin/message')}" >待审核留言&nbsp;&nbsp;<span class="label label-info">+3</span></a></li>
+            <li ><a href="{:url('/admin/message')}">已审核留言</a></li>
+        </ul>
+
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>评论管理<span class="label label-info">+3</span></a>
+        <ul id="error-menu" class='nav nav-list collapse {if condition="($place eq 31)"} in {/if}'>
+            <li {if condition="($place eq 31)"} class="active" {/if}><a href="{:url('/admin/comment')}">待审核评论&nbsp;&nbsp;<span class="label label-info">+3</span></a></li>
+            <li {if condition="($place eq 32)"} class="active" {/if}><a href="{:url('/admin/comment')}">已审核评论</a></li>
+        </ul>
+
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>个人日志</a>
+        <ul id="legal-menu" class='nav nav-list collapse {if condition="($place eq 41)"} in {/if}'>
+            <li {if condition="($place eq 41)"} class="active" {/if}><a href="{:url('/admin/log')}">日志列表</a></li>
+        </ul>
+
+        <a href="#legal-photo" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>图片管理</a>
+        <ul id="legal-photo" class='nav nav-list collapse {if condition="($place eq 51)"} in {/if}'>
+            <li {if condition="($place eq 51)"} class="active" {/if}><a href="{:url('/admin/photo')}">图片列表</a></li>
+        </ul>
+
+        <a href="#legal-suiyan" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>碎言碎语</a>
+        <ul id="legal-suiyan" class='nav nav-list collapse {if condition="($place eq 61)"} in {/if}'>
+            <li {if condition="($place eq 61)"} class="active" {/if}><a href="{:url('/admin/sui_yan')}">碎言碎语</a></li>
+        </ul>
+    </div>

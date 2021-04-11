@@ -1,0 +1,93 @@
+   
+
+<div class="content">
+
+  <div class="header">
+
+    <h1 class="page-title">文章列表</h1>
+  </div>
+
+  <ul class="breadcrumb">
+    <li><a href="{:url('/admin')}">首页</a> <span class="divider">/</span></li>
+    <li class="active">文章列表</li>
+  </ul>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+
+      <div class="btn-toolbar">
+        <a href="{:url('/admin/article/create')}"><button class="btn btn-primary"><i class="icon-plus"></i>新增文章</button></a>
+        <div class="btn-group">
+        </div>
+      </div>
+      <div class="well" style="height: 214px;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="text-align: center;">编号</th>
+              <th style="text-align: left;">标题</th>
+              <th style="text-align: left;">作者</th>
+              <th style="text-align: left;">概要</th>
+              <th style="width: 100px;text-align: center;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {volist name="list" id="vo"}
+            <tr><form id="{$vo.aid}" method="POST" action="{:url('/admin/article/')}{$vo.aid}">
+              <input type="hidden" name="_method" value="DELETE">
+              <td style="text-align: center;width:113px;">{$vo.aid}</td>
+              <td style="text-align: left;width:220px;">{$vo.title}</td>
+              <td style="text-align: left;width: 120px;">{$vo.author}</td>
+              <td style="text-align: left;width:650px">{$vo.description}</td>
+              <td style="text-align: center;width:100px">
+                <a href="{:url('/admin/article/')}{$vo.aid}/edit"><i class="icon-pencil"></i></a>
+                <a href="javascript:;" role="button" data-toggle="modal"><i class="icon-remove" onclick="delarticle({$vo.aid})"></i></a>
+              </td></form>
+            </tr>
+            {/volist}
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        {$page}
+      </div>
+
+      <footer>
+        <hr>
+        <p class="pull-right">Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+        <p>&copy; 2012 <a href="#" target="_blank">Portnine</a></p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal small hide fade" id="del" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">删除确认</h3>
+  </div>
+  <div class="modal-body">
+
+    <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确认删除此记录吗</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+    <button class="btn btn-danger" data-dismiss="modal" onclick="delarticle()">删除</button>
+  </div>
+</div>
+
+
+<script>
+  function delarticle(id){
+    var msg = "确定删除此条记录吗？";
+    if(confirm(msg) == true) {
+      document.getElementById(id).submit();
+    } else {
+      return false;
+    }
+    document.getElementById(id).submit();
+  } 
+</script>
+
+

@@ -1,0 +1,63 @@
+
+
+<div class="content">
+
+  <div class="header">
+
+    <h1 class="page-title"文章编辑</h1>
+    </div>
+
+    <ul class="breadcrumb">
+      <li><a href="{:url('/admin/article')}">首页</a> <span class="divider">/</span></li>
+      <li class="active">文章编辑</li>
+    </ul>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="well">
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active in" id="home">
+              <form id="articleedit" name="articleedit" action="{:url('/admin/article/')}{$article.aid}" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <label>文章标题</label>
+                <input type="text" value="{$article.title}" class="input-xlarge">
+                <label>文章类别</label>
+                <input type="text" value="学习" class="input-xlarge">
+                <label>关键字</label>
+                <input type="text" value="{$article.keywords}" class="input-xlarge">
+                <label>概要</label>
+                <input type="text" value="{$article.description}" class="input-xlarge">
+                <label>内容</label>
+                <script id="content" type="text/plain"  name="content">{$article.content}</script>
+                <script type="text/javascript">
+    　　        //实例化编辑器
+    　　        //建议使用工厂方法getEditor创建和引用编辑器实例，
+                //如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    　　           UE.getEditor('content',{initialFrameWidth:1100,initialFrameHeight:300,});
+
+  　　          </script>
+              </form>
+            </div>
+            <div class="btn-toolbar">
+              <button onclick="createarticle()" class="btn btn-primary"><i class="icon-save"></i>保存</button>
+              <a href="{:url('/admin/article')}" data-toggle="modal" class="btn">取消</a>
+              <div class="btn-group">
+              </div>
+            </div>           
+          </div>
+      </div>
+      <footer>
+      <hr>
+      <p class="pull-right">Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+      <p>&copy; 2012 <a href="#" target="_blank">Portnine</a></p>
+    </footer>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    function createarticle(){ //提交表单内容
+      document.getElementById("articleedit").submit();
+    }
+</script>
+
+
